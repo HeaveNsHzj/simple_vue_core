@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo - Vue2.0数据更新机制</title>
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <style>
+        .content {
+            display: flex;
+        }
+        #code-container {
+            list-style: none;
+            margin: 0;
+            padding: 8px 16px;
+            width: 80%;
+            -webkit-flex: 7;
+            flex: 7;
+        }
+        .console-container {
+            -webkit-flex: 3;
+            flex: 3;
+            padding: 8px 16px;
+            list-style: none;
+            font-size: 16px;
+            word-break: break-all;
+        }
+        .console-container li{
+            padding: 8px 0 4px;
+            border-bottom: 1px solid rgba(0,0,0,.1);
+        }
+
+        #code-container .editor {
+            /*height: 400px;*/
+            font-size: 16px;
+        }
+        .file-title {
+            margin: 16px 0 0;
+            padding: 8px;
+            cursor: pointer;
+            background: #DDD;
+            border-bottom: 1px solid #CCC;
+        }
+        .file-name{
+            color: #474d57;
+            text-shadow:0 1px 1px #fff;
+        }
+        .code-folder {
+            border-radius: 50%;
+            background: lightblue;
+            border: 1px solid skyblue;
+            color: #fff;
+            display: inline-block;
+            padding: 0 4px;
+            width: 15px;
+            height: 15px;
+            line-height: 15px;
+            text-align: center;
+            font-style: normal;
+            -webkit-user-select: none;
+        }
+        .code-folder:after{
+            content: '-';
+        }
+        .file-name {
+            font-size: 14px;
+        }
+        .code-folded .editor {
+            display: none;
+        }
+        .code-folded .code-folder:after {
+            content: '+';
+        }
+        .font-zoom-in, .font-zoom-out {
+            display: inline-block;
+            margin: 0 4px;
+            padding: 0 4px;
+            font-style: normal;
+            -webkit-user-select: none;
+            transform: scale(1.5);
+            transform-origin: center center;
+        }
+        .font-zoom-out:hover,
+        .font-zoom-in:hover{
+            background: #e4e4e4;
+        }
+        #demo {
+            width: 500px;
+            font-size: 20px;
+            margin: 0 auto;
+        }
+        header {
+            line-height: 30px;
+            padding: 0 16px;
+        }
+    </style>
+</head>
+<body>
+<div id="demo">
+
+</div>
+<header>
+    <label><input type="checkbox" id="toggleDarkTheme"/>Monokai</label>
+    <label><input type="checkbox" id="showAllDiff"/>高亮新增行</label>
+    <label><input type="checkbox" id="foldAll">收起</label>
+</header>
+<div class="content">
+    <ul id="code-container">
+
+    </ul>
+    <ul id="console-container" class="console-container">
+        <div style="line-height: 30px;">Console</div>
+    </ul>
+</div>
+<script type="text/javascript" src="lib/ace.js"></script>
+<script type="text/javascript" src="lib/pretty-format.js"></script>
+<script type="text/javascript" src="dist/page.js"></script>
+
+</body>
+</html>
